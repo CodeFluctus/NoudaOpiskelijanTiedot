@@ -12,12 +12,22 @@
     }
     
     $result = mysqli_query($con,"SELECT * FROM Opiskelija");
+
+    echo "<table border = '1'>
+    <tr>
+    <th>Etunimi</th>
+    <th>Sukunimi</th>
+    </tr>";
+
     while($row = mysqli_fetch_array($result)) 
     {
-        echo $row['Etunimi'] . " " . $row['Sukunimi'];
-        /*Rivinvaihto */
-        echo "<br>";
+        echo "<tr>";
+        echo "<td>" . $row['Etunimi'] . "</td>";
+        echo "<td>" . $row['Sukunimi'] . "</td>";
+        echo "</tr>"
     }
 
+    echo "</table>";
+    
     mysqli_close($con);
 ?>
